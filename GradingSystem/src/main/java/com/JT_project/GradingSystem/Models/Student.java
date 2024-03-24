@@ -12,7 +12,7 @@ public class Student {
      @GeneratedValue(strategy=GenerationType.IDENTITY)
      private Long student_id;
      
-     @OneToOne
+     @OneToOne(cascade=CascadeType.ALL)
      @JoinColumn(name="user_id")
 	 private User user;
      
@@ -93,6 +93,14 @@ public class Student {
 	}
 	public void setClassroom(Classroom classroom) {
 		this.classroom = classroom;
+	}
+	public void setStudent_id(Long student_id)
+	{
+		this.student_id=student_id;
+	}
+	public Long getStudent_id()
+	{
+		return student_id;
 	}
 	 
 }

@@ -41,7 +41,18 @@ public class SecurityConfig {
             .requestMatchers(HttpMethod.POST,"/api/add_professorUser").permitAll()
             .requestMatchers(HttpMethod.POST,"/api/add_profDetails/{user_id}").hasRole("PROF")
             .requestMatchers(HttpMethod.POST,"/api/add_studentDetails/{user_id}").hasRole("STUDENT")
-            
+            .requestMatchers(HttpMethod.GET,"/api/show_grades/{student_id}").hasRole("STUDENT")
+            .requestMatchers(HttpMethod.GET,"/api/show_grade/{course_name}/{student_id}").hasRole("STUDENT")
+            .requestMatchers(HttpMethod.PUT,"/api/update_studentDetails/{student_id}").hasRole("STUDENT")
+            .requestMatchers(HttpMethod.PUT,"/api/update_profDetails/{prof_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.DELETE,"/api/delete_student/{student_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.GET,"/api/classroom_students/{class_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.GET,"/api/course_studets/{course_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.POST,"/api/add_studentGrade/{belong_to_id}/{course_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.PUT,"/api/update_studentGrade/{grade_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.DELETE,"/api/delete_studentGrade/{grade_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.GET,"/api/analysis_classroom/{class_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.GET,"/api/analysis_course/{course_id}").hasRole("PROF")
 );
 
         // use HTTP Basic authentication
