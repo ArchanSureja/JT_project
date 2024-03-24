@@ -35,8 +35,13 @@ public class SecurityConfig {
 
     http.authorizeHttpRequests(configurer ->
     configurer
-            .requestMatchers(HttpMethod.GET, "/api/prof").hasRole("PROF")
-            .requestMatchers(HttpMethod.GET, "/api/student").hasRole("STUDENT")
+//            .requestMatchers(HttpMethod.GET, "/api/prof").hasRole("PROF")
+//            .requestMatchers(HttpMethod.GET, "/api/student").hasRole("STUDENT")
+            .requestMatchers(HttpMethod.POST,"/api/add_studentUser").permitAll()
+            .requestMatchers(HttpMethod.POST,"/api/add_professorUser").permitAll()
+            .requestMatchers(HttpMethod.POST,"/api/add_profDetails/{user_id}").hasRole("PROF")
+            .requestMatchers(HttpMethod.POST,"/api/add_studentDetails/{user_id}").hasRole("STUDENT")
+            
 );
 
         // use HTTP Basic authentication

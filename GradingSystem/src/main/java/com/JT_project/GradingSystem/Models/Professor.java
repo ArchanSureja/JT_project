@@ -1,9 +1,13 @@
 package com.JT_project.GradingSystem.Models;
 
 import java.sql.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 @Entity
 @Table(name="professors")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Professor {
           
 

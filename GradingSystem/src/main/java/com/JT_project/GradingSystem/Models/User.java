@@ -1,9 +1,12 @@
 package com.JT_project.GradingSystem.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
